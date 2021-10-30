@@ -31,7 +31,7 @@ public class EdgeService {
     }
 
     public List<AnimalDTO> getAvailableAnimals(Optional<String> type, Optional<Long> ageFrom, Optional<Long> ageTo){
-            return getAvailableAnimals(type, ageFrom, ageTo);
+            return animalProxy.getAvailableAnimals(type, ageFrom, ageTo);
     }
 
 

@@ -18,7 +18,7 @@ public interface AnimalProxy {
     public List<AnimalDTO> getAvailableAnimals(
             @RequestParam Optional<String> type,
             @RequestParam Optional<Long> ageFrom,
-            @RequestParam Optional<Long> AgeTo);
+            @RequestParam Optional<Long> ageTo);
 
 
     @PutMapping("/animals/update")
