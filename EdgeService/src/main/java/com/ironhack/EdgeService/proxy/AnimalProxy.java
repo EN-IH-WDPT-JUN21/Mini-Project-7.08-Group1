@@ -1,6 +1,7 @@
 package com.ironhack.EdgeService.proxy;
 
 import com.ironhack.EdgeService.DTO.AnimalDTO;
+import com.ironhack.EdgeService.DTO.AnimalStatusDTO;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public interface AnimalProxy {
             @RequestParam Optional<Long> AgeTo);
 
 
-    @PatchMapping("/animal/adopt/{id}")
-    AnimalDTO adoptAnimal(@PathVariable(name = "id") Long id);
+    @PutMapping("/animals/update")
+    public AnimalDTO adoptAnimal(@RequestBody AnimalStatusDTO animalStatusDTO);
 
 }

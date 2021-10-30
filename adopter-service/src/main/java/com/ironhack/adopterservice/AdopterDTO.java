@@ -1,10 +1,12 @@
 package com.ironhack.adopterservice;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 
@@ -13,10 +15,10 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdopterDTO {
-    @NotEmpty(message = "Name cannot be empty or null.")
+    @NotBlank(message = "Name cannot be empty or null.")
     private String name;
 
-    @NotEmpty(message = "The pet ID cannot be empty or null.")
+    @NotNull
     private Long petId;
 
 }
