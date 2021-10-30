@@ -1,5 +1,6 @@
 package com.ironhack.animals.service;
 
+import com.ironhack.animals.controllers.dto.AnimalDTO;
 import com.ironhack.animals.dao.Animal;
 import com.ironhack.animals.dto.AnimalStatusDTO;
 import com.ironhack.animals.enums.AnimalType;
@@ -62,6 +63,14 @@ public class AnimalService {
             animal.get().setAvailable(animalStatusDTO.getAvailable());
             return animalRepository.save(animal.get());
         }
+    }
+    public Animal postAnimal(AnimalDTO animalDTO){
+        return animalRepository.save(new Animal(
+               animalDTO.getName(),
+               AnimalType.valueOf(animalDTO.getType()),
+               animalDTO.getAge(),
+               true
+        ));
     }
 
 }
