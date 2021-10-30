@@ -2,6 +2,7 @@ package com.ironhack.EdgeService.service;
 
 import com.ironhack.EdgeService.DTO.AdopterDTO;
 import com.ironhack.EdgeService.DTO.AnimalDTO;
+import com.ironhack.EdgeService.DTO.AnimalStatusDTO;
 import com.ironhack.EdgeService.proxy.AdopterProxy;
 import com.ironhack.EdgeService.proxy.AnimalProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,9 @@ public class EdgeService {
     @Qualifier("animal")
     private AnimalProxy animalProxy;
 
-    public AdopterDTO adopt(AdopterDTO adopter, Long animalId){
-        animalProxy.adoptAnimal(animalId);
+    public AdopterDTO adopt(AdopterDTO adopter){
+        AnimalStatusDTO animalStatusDTO=new AnimalStatusDTO(adopter.getPetId(), false);
+        animalProxy.adoptAnimal(animalStatusDTO);
         return adopterProxy.adoptAnimal(adopter);
     }
 

@@ -11,16 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransactionDTO {
-
+public class AnimalStatusDTO {
     private Long id;
-    private String name;
-    private String type;
-    private int age;
-    private boolean available;
-    private List<AnimalDTO> animalList;
-
-
-
-
+    private Boolean available;
 }

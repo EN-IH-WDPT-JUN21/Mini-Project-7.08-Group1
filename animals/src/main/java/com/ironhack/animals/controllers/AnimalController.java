@@ -3,6 +3,7 @@ package com.ironhack.animals.controllers;
 import com.ironhack.animals.dao.Animal;
 import com.ironhack.animals.dto.AnimalStatusDTO;
 import com.ironhack.animals.service.AnimalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,8 @@ public class AnimalController {
         return animalService.getAnimals(type,ageFrom,ageTo);
     }
 
-    @PatchMapping("/animals/update")
+
+    @PutMapping("/animals/update")
     public Animal updateAnimalStatus(@RequestBody AnimalStatusDTO animalStatusDTO){
         return animalService.updateAnimalStatus(animalStatusDTO);
     }

@@ -17,7 +17,7 @@ public class EdgeServiceController {
     @Qualifier("service-edge")
     EdgeService edgeService;
 
-    @GetMapping
+    @GetMapping("/animals")
     private List<AnimalDTO> getAvailableAnimals(
             @RequestParam Optional<String> type,
             @RequestParam Optional<Long> ageFrom,
@@ -25,9 +25,9 @@ public class EdgeServiceController {
         return edgeService.getAvailableAnimals(type, ageFrom, ageTo);
     }
 
-    @PostMapping
+    @PostMapping("/animals")
     private AdopterDTO adopt(@RequestBody AdopterDTO adopter){
-        return edgeService.adopt(adopter, adopter.getPetId());
+        return edgeService.adopt(adopter);
     }
 
 }
