@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/EdgeService/EdgeService.iml" filepath="$PROJECT_DIR$/EdgeService/EdgeService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Mini-Project-7.08-Group1.iml" filepath="$PROJECT_DIR$/.idea/Mini-Project-7.08-Group1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Server/Server.iml" filepath="$PROJECT_DIR$/Server/Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/adopter-service/adopter-service.iml" filepath="$PROJECT_DIR$/adopter-service/adopter-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/animals/animals.iml" filepath="$PROJECT_DIR$/animals/animals.iml" />
     </modules>
   </component>
 </project>

@@ -7,16 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EdgeService" />
+        <module name="animals" />
+        <module name="Server" />
         <module name="adopter-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="adopter-service" target="17" />
+      <module name="animals" target="17" />
+      <module name="EdgeService" target="17" />
+      <module name="Server" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EdgeService" options="-parameters" />
+      <module name="Server" options="-parameters" />
       <module name="adopter-service" options="-parameters" />
+      <module name="animals" options="-parameters" />
     </option>
   </component>
 </project>
