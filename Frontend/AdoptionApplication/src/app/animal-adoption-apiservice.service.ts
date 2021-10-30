@@ -1,3 +1,4 @@
+
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,6 +9,9 @@ import { Animal } from './models/animal.model';
 })
 export class AnimalAdoptionAPIService {
   private readonly baseUrl: string = 'http://localhost:8000'; 
+
+  readonly baseDogURL:string = "https://dog.ceo/api/breeds/image/random";
+  readonly baseCatURL:string = "https://aws.random.cat/meow?ref=apilist.fun";
 
   constructor(private http: HttpClient) { }
   searchAnimals(ageFrom?: number, ageTo?: number, type?:string): Observable<Animal[]> {
@@ -30,9 +34,20 @@ export class AnimalAdoptionAPIService {
     httpParams.append('petId', petId);  
 
 
+
+
     const httpOptions = {
       params: httpParams
     };
     return this.http.post<Animal[]>(this.baseUrl + '/animals', httpOptions);
   }
+
+  getDogImage() : Observable<any> {
+    return this.http.get<any>(this.baseDogURL);
+  }
+  getCatImage() : Observable<any> {
+    return this.http.get<any>(this.baseCatURL);
+  }
+
+
 }

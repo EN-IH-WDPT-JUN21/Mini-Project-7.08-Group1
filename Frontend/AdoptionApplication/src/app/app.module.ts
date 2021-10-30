@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,6 +9,8 @@ import { AnimalComponent } from './animal/animal.component';
 import { AdopterComponent } from './adopter/adopter.component';
 import { AnimalListComponent } from './animal-list/animal-list.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDivider} from '@angular/material/divider';
 
 
 @NgModule({
@@ -21,8 +24,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-  ],
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule
+      ],
   providers: [AdopterComponent],
   bootstrap: [AppComponent]
 })
