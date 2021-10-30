@@ -1,0 +1,9 @@
+<div>
+    <input [(ngModel)]="type" placeholder="animal type">
+    <input [(ngModel)]="ageFrom" placeholder="age from" label="age from">
+    <input [(ngModel)]="ageTo" placeholder="age to" label="age to">
+    <button class="btn btn-primary" (click)="searchAnimals()">Search animals</button>
+    <app-animal *ngFor="let animal of animalList; let i=index" [animal]="animal" (animalAdopted)="adoptAnimal($event)">
+        
+    </app-animal>
+</div>

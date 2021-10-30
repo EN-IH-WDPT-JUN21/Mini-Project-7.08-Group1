@@ -1,0 +1,13 @@
+<div>
+    <p>Id: {{animal.id}} {{animal.name}}</p>
+    <p>{{animal.type}}</p>
+    <p>{{animal.age}}</p>
+    <p>{{animal.available}}</p>
+
+    <td><button (click)="showForm(position)" >Show form</button></td>
+    <div *ngIf="isButtonClicked">
+        <input [(ngModel)]="adopter.name" placeholder="Adopter name">
+        <button (click)="adoptAnimal(adopter.name, animal.id)" >Adopt</button>
+    </div>
+
+</div>
