@@ -12,4 +12,14 @@ import lombok.Setter;
 public class AnimalStatusDTO {
     private Long id;
     private Boolean available;
+
+    @Setter
+    @Getter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class AnimalDTO {
+        private String name;
+        private String type;
+        private Long age;
+    }
 }

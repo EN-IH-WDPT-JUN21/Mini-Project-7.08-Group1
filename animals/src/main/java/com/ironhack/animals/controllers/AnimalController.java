@@ -1,6 +1,5 @@
 package com.ironhack.animals.controllers;
 
-import com.ironhack.animals.controllers.dto.AnimalDTO;
 import com.ironhack.animals.dao.Animal;
 import com.ironhack.animals.dto.AnimalStatusDTO;
 import com.ironhack.animals.service.AnimalService;
@@ -32,7 +31,7 @@ public class AnimalController {
         return animalService.updateAnimalStatus(animalStatusDTO);
     }
     @PostMapping("/animal")
-    public Animal postAnimal(@RequestBody AnimalDTO animalDTO){
+    public Animal postAnimal(@RequestBody AnimalStatusDTO.AnimalDTO animalDTO){
         return animalService.postAnimal(animalDTO);
     }
 
