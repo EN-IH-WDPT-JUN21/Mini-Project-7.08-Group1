@@ -30,7 +30,7 @@ public class EdgeService {
         return adopterProxy.adoptAnimal(adopter);
     }
 
-    public List<AnimalDTO> getAvailableAnimals(Optional<String> type, Optional<Long> ageFrom, Optional<Long> ageTo){
+    public List<AnimalDTO> getAvailableAnimals(String type, Long ageFrom, Long ageTo){
             return animalProxy.getAvailableAnimals(type, ageFrom, ageTo);
     }
 

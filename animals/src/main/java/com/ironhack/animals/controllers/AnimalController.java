@@ -1,13 +1,12 @@
 package com.ironhack.animals.controllers;
 
 import com.ironhack.animals.dao.Animal;
+import com.ironhack.animals.dto.AnimalDTO;
 import com.ironhack.animals.dto.AnimalStatusDTO;
 import com.ironhack.animals.service.AnimalService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class AnimalController {
@@ -20,9 +19,9 @@ public class AnimalController {
 
     @GetMapping("/animals")
     public List<Animal> getAvailableAnimals(
-            @RequestParam Optional<String> type,
-            @RequestParam Optional<Long> ageFrom,
-            @RequestParam Optional<Long> ageTo)
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) Long ageFrom,
+            @RequestParam(required = false) Long ageTo)
     {
         return animalService.getAnimals(type,ageFrom,ageTo);
     }
@@ -33,7 +32,7 @@ public class AnimalController {
         return animalService.updateAnimalStatus(animalStatusDTO);
     }
     @PostMapping("/animal")
-    public Animal postAnimal(@RequestBody AnimalStatusDTO.AnimalDTO animalDTO){
+    public Animal postAnimal(@RequestBody AnimalDTO animalDTO){
         return animalService.postAnimal(animalDTO);
     }
 

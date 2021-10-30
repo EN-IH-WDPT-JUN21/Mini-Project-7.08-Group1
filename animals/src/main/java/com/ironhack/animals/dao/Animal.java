@@ -20,14 +20,13 @@ public class Animal {
 
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private AnimalType type;
+    private String type;
 
     private Long age;
 
     private Boolean available;
 
-    public Animal(String name, AnimalType type, Long age, Boolean available) {
+    public Animal(String name, String type, Long age, Boolean available) {
         this.name = name;
         this.type = type;
         this.age = age;
