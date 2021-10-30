@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Mini-Project-7.08-Group1.iml" filepath="$PROJECT_DIR$/.idea/Mini-Project-7.08-Group1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/animals/animals.iml" filepath="$PROJECT_DIR$/animals/animals.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adopter-service/adopter-service.iml" filepath="$PROJECT_DIR$/adopter-service/adopter-service.iml" />
     </modules>
   </component>
 </project>
