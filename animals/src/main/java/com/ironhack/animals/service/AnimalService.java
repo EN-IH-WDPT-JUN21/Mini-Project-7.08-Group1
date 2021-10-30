@@ -39,15 +39,15 @@ public class AnimalService {
 
 
         if (type.isPresent() && ageFrom.isPresent() && ageTo.isPresent()){
-            return animalRepository.findByAvailabilityAndTypeAndAgeBetween(true,type.get(), ageFrom.get(), ageTo.get());
+            return animalRepository.findByAvailableAndTypeAndAgeBetween(true,type.get(), ageFrom.get(), ageTo.get());
         } else if(type.isPresent()){
-            return animalRepository.findByAvailabilityAndType(true,type.get());
+            return animalRepository.findByAvailableAndType(true,type.get());
         } else if (ageFrom.isPresent()){
             //age is present, type is not
-            return animalRepository.findByAvailabilityAndAgeBetween(true,ageFrom.get(), ageTo.get());
+            return animalRepository.findByAvailableAndAgeBetween(true,ageFrom.get(), ageTo.get());
         } else {
             //get all without filters
-            return animalRepository.findByAvailability(true);
+            return animalRepository.findByAvailable(true);
         }
 
 
