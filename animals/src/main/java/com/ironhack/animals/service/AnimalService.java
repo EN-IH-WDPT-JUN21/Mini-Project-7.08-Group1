@@ -1,6 +1,7 @@
 package com.ironhack.animals.service;
 
 import com.ironhack.animals.dao.Animal;
+import com.ironhack.animals.dto.AnimalDTO;
 import com.ironhack.animals.dto.AnimalStatusDTO;
 import com.ironhack.animals.enums.AnimalType;
 import com.ironhack.animals.repositories.AnimalRepository;
@@ -20,31 +21,25 @@ public class AnimalService {
         this.animalRepository = animalRepository;
     }
 
-    public List<Animal> getAnimals(Optional<String> type, Optional<Long> ageFrom, Optional<Long> ageTo){
+    public List<Animal> getAnimals(String type, Long ageFrom, Long ageTo){
 
-        //Validation
-        try {
-            type.ifPresent(AnimalType::valueOf);
-        }catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Bad animal type format");
-        }
         if (
-                (ageFrom.isPresent() && ageTo.isEmpty())
+                (ageFrom !=null && ageTo==null)
                     ||
-                (ageFrom.isEmpty() && ageTo.isPresent())
+                (ageFrom==null && ageTo!=null)
         ) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Missing one age parameter");
         }
 
 
 
-        if (type.isPresent() && ageFrom.isPresent() && ageTo.isPresent()){
-            return animalRepository.findByAvailableAndTypeAndAgeBetween(true,type.get(), ageFrom.get(), ageTo.get());
-        } else if(type.isPresent()){
-            return animalRepository.findByAvailableAndType(true,type.get());
-        } else if (ageFrom.isPresent()){
+        if (type!=null && ageFrom != null && ageTo != null){
+            return animalRepository.findByAvailableAndTypeAndAgeBetween(true,type, ageFrom, ageTo);
+        } else if(type!=null){
+            return animalRepository.findByAvailableAndType(true,type);
+        } else if (ageFrom!=null){
             //age is present, type is not
-            return animalRepository.findByAvailableAndAgeBetween(true,ageFrom.get(), ageTo.get());
+            return animalRepository.findByAvailableAndAgeBetween(true,ageFrom, ageTo);
         } else {
             //get all without filters
             return animalRepository.findByAvailable(true);
@@ -63,10 +58,10 @@ public class AnimalService {
             return animalRepository.save(animal.get());
         }
     }
-    public Animal postAnimal(AnimalStatusDTO.AnimalDTO animalDTO){
+    public Animal postAnimal(AnimalDTO animalDTO){
         return animalRepository.save(new Animal(
                animalDTO.getName(),
-               AnimalType.valueOf(animalDTO.getType()),
+               animalDTO.getType(),
                animalDTO.getAge(),
                true
         ));

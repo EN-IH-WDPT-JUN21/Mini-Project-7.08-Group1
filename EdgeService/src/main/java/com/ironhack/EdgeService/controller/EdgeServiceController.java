@@ -19,9 +19,9 @@ public class EdgeServiceController {
 
     @GetMapping("/animals")
     private List<AnimalDTO> getAvailableAnimals(
-            @RequestParam Optional<String> type,
-            @RequestParam Optional<Long> ageFrom,
-            @RequestParam Optional<Long> ageTo){
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) Long ageFrom,
+            @RequestParam(required = false) Long ageTo){
         return edgeService.getAvailableAnimals(type, ageFrom, ageTo);
     }
 

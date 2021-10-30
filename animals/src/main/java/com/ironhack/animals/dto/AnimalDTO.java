@@ -9,7 +9,8 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnimalStatusDTO {
-    private Long id;
-    private Boolean available;
+public class AnimalDTO {
+    private String name;
+    private String type;
+    private Long age;
 }
