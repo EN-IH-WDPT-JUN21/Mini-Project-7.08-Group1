@@ -1,6 +1,8 @@
+import { AnimalAdoptionAPIService } from './../animal-adoption-apiservice.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Adopter } from '../models/adopter.model';
 import { Animal } from '../models/animal.model';
+
 
 @Component({
   selector: 'app-animal',
@@ -10,6 +12,7 @@ import { Animal } from '../models/animal.model';
 export class AnimalComponent implements OnInit {
 
   isButtonClicked=false;
+  picture: string="";
 
   @Input() animal! : Animal;
   @Input() adopter! : Adopter;
@@ -18,7 +21,7 @@ export class AnimalComponent implements OnInit {
 
 
   @Input() position!:number;
-  constructor() { }
+  constructor(private animalAdoptionAPIService: AnimalAdoptionAPIService) { }
 
   ngOnInit(): void {
   }
@@ -31,5 +34,4 @@ export class AnimalComponent implements OnInit {
   showForm(position : number): void{
     this.isButtonClicked=true;
   }
-
 }

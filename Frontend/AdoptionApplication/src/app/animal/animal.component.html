@@ -1,13 +1,22 @@
-<div>
-    <p>Id: {{animal.id}} {{animal.name}}</p>
-    <p>{{animal.type}}</p>
-    <p>{{animal.age}}</p>
-    <p>{{animal.available}}</p>
-
-    <td><button (click)="showForm(position)" >Show form</button></td>
-    <div *ngIf="isButtonClicked">
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{animal.name}}</mat-card-title>
+      <mat-card-subtitle>Id: {{animal.id}}   <p> Age: {{animal.age}}</p> </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image alt="Photo of animal">
+    <mat-card-content>
+      <p>
+        
+        heartbreaking story about the pet.
+      </p>
+      <div *ngIf="isButtonClicked">
         <input [(ngModel)]="adopter.name" placeholder="Adopter name">
-        <button (click)="adoptAnimal(adopter.name, animal.id)" >Adopt</button>
+        <button class="mat-raised-button"(click)="adoptAnimal(adopter.name, animal.id)" >Adopt</button>
     </div>
-
-</div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="showForm(position)" >Show form</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>

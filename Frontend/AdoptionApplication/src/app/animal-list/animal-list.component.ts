@@ -13,6 +13,7 @@ export class AnimalListComponent implements OnInit {
   type: string;
   ageFrom: number;
   ageTo: number;
+  image: string;
   animalList: Array<Animal>;
 
 
@@ -20,6 +21,7 @@ export class AnimalListComponent implements OnInit {
     this.ageTo=0;
     this.ageFrom=0;
     this.type="";
+    this.image='https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg';
     this.animalList=[];
   }
 
@@ -48,5 +50,6 @@ export class AnimalListComponent implements OnInit {
       console.error(errors);
     });
   }
+
 
 }
