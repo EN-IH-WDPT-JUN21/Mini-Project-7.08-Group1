@@ -26,4 +26,11 @@ public class Animal {
     private Long age;
 
     private Boolean available;
+
+    public Animal(String name, AnimalType type, Long age, Boolean available) {
+        this.name = name;
+        this.type = type;
+        this.age = age;
+        this.available = available;
+    }
 }

@@ -63,5 +63,13 @@ public class AnimalService {
             return animalRepository.save(animal.get());
         }
     }
+    public Animal postAnimal(AnimalStatusDTO.AnimalDTO animalDTO){
+        return animalRepository.save(new Animal(
+               animalDTO.getName(),
+               AnimalType.valueOf(animalDTO.getType()),
+               animalDTO.getAge(),
+               true
+        ));
+    }
 
 }

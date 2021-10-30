@@ -27,9 +27,14 @@ public class AnimalController {
         return animalService.getAnimals(type,ageFrom,ageTo);
     }
 
+
     @PutMapping("/animals/update")
     public Animal updateAnimalStatus(@RequestBody AnimalStatusDTO animalStatusDTO){
         return animalService.updateAnimalStatus(animalStatusDTO);
+    }
+    @PostMapping("/animal")
+    public Animal postAnimal(@RequestBody AnimalStatusDTO.AnimalDTO animalDTO){
+        return animalService.postAnimal(animalDTO);
     }
 
 }
