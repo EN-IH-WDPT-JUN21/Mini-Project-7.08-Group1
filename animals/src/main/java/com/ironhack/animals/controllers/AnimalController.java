@@ -27,7 +27,7 @@ public class AnimalController {
         return animalService.getAnimals(type,ageFrom,ageTo);
     }
 
-    @PatchMapping("animals/update")
+    @PatchMapping("/animals/update")
     public Animal updateAnimalStatus(@RequestBody AnimalStatusDTO animalStatusDTO){
         return animalService.updateAnimalStatus(animalStatusDTO);
     }
